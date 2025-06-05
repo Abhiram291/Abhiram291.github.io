@@ -10,6 +10,7 @@ const showLogin = () => {
     `
     root.innerHTML = str
 }
+
 const showRegister = () => {
       let str=`
     <h1>Register Form</h1>
