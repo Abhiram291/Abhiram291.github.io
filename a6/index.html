@@ -1,39 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1> Fruits List </h1>
-    <ul id="fruits-list">
-        <!-- Fruit items will be added here -->
-    </ul>
-    <input type="text" id="fruit-input" placeholder="Enter a fruit" />
-    <button id="add-btn">Add Fruit</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruit List</title>
     <script>
-        const fruits = ["Apple", "Banana", "Mango"];
-
-        function addFruit() {
-            const input = document.getElementById('fruit-input');
-            const fruit = input.value.trim();
-            if (fruit) {
-                fruits.push(fruit);
-                const ul = document.getElementById('fruits-list');
-                // Use map to add only the last fruit entered
-                fruits.map((f, i) => {
-                    if (i === fruits.length - 1) {
-                        const li = document.createElement('li');
-                        li.textContent = f;
-                        ul.appendChild(li);
-                    }
-                });
-                input.value = '';
-            }
-        }
-
-        document.getElementById('add-btn').addEventListener('click', addFruit);
+      const fruits = [];
+      function add() {
+        const input = document.getElementById("txt1").value;
+        fruits.push(input);
+        const listHTML = fruits.map((fruit) => `<li>${fruit}</li>`).join("");
+        document.getElementById("fruitList").innerHTML = listHTML;
+      }
     </script>
-</body>
+  </head>
+  <body>
+    <div>
+      <h1>Fruit List</h1>
+      <input type="text" id="txt1" />
+      <button onclick="add()">Add</button>
+      <ul id="fruitList"></ul>
+    </div>
+  </body>
 </html>
