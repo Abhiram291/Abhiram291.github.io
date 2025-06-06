@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Fruits List </h1>
+    <ul id="fruits-list">
+        <!-- Fruit items will be added here -->
+    </ul>
+    <button id="add-btn">Add Fruit</button>
+    <script>
+        const fruits = ["Apple", "Banana", "Mango"];
+        let index = 0;
+
+        function addFruit() {
+            if (index < fruits.length) {
+                const ul = document.getElementById('fruits-list');
+                // Use map to create li elements, but only add the current one
+                fruits.map((fruit, i) => {
+                    if (i === index) {
+                        const li = document.createElement('li');
+                        li.textContent = fruit;
+                        ul.appendChild(li);
+                    }
+                });
+                index++;
+            }
+        }
+
+        document.getElementById('add-btn').addEventListener('click', addFruit);
+    </script>
+</body>
+</html>
