@@ -80,7 +80,8 @@ const SubmitMoney = () => {
     } else if (select == 2) {
         user.balance -= parseInt(amount);
     }
-     else if
+    
+    if
        (user.balance < 0) {
         user.balance = 0;
         alert("Insufficient balance");
