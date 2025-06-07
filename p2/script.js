@@ -39,7 +39,7 @@ const showHome = () => {
       <p>
       <input type='number' id='txtAmount'>
       </p>
-      <p><button>Submit</button>
+      <p><button onclick = 'SubmitMoney()'>Submit</button>
 
     <button onclick='showLogin()'>Logout</button>
     <hr>
@@ -49,21 +49,20 @@ const showHome = () => {
 };
 
 const addUser = () => {
-  const user = {
+  const obj = {
     name: document.getElementById("txtName").value,
     email: document.getElementById("txtEmail").value,
     pass: document.getElementById("txtPass").value,
     balance:0
   };
-  users.push(user);
-  console.log(users);
+  users.push(obj);
   showLogin();
 };
 
 const validateUser = () => {
   let email = document.getElementById("txtEmail").value;
   let pass = document.getElementById("txtPass").value;
-  const user = users.find(
+   user = users.find(
     (e) => e.email === email && e.pass === pass
   )
   if (user) {
@@ -72,3 +71,14 @@ const validateUser = () => {
     dvMsg.innerHTML = "Access Denied";
   }
 };
+
+const SubmitMoney = () => {
+    let amount = document .getElementById("txtAmount").value;
+    let select = document.querySelector("select").value;
+    if (select == 1) {
+        user.balance += parseInt(amount);
+    } else if (select == 2) {
+        user.balance -= parseInt(amount);
+    }
+    showHome();
+}
