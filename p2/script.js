@@ -82,6 +82,7 @@ const SubmitMoney = () => {
     }
      else if
        (user.balance < 0) {
+        user.balance = 0;
         alert("Insufficient balance");
     }
     showHome();
